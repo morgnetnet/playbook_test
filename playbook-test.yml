@@ -4,7 +4,7 @@
   tasks:
 
     - name: OS version - register variable
-      ansible.builtin.shell: cat /etc/*ease
+      ansible.builtin.shell: grep -iE "name|release" /etc/*release
       changed_when: false
       register: os_version
 
