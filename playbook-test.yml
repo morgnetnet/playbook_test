@@ -37,7 +37,7 @@
 
     - name: Memory available - standard out lines
       ansible.builtin.debug:
-        msg: "{{ os_version.sstdout_lines }}"
+        msg: "{{ os_version.stdout_lines }}"
 
     - name: Disk space - register variable
       ansible.builtin.shell: cat /etc/*ease
