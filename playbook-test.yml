@@ -1,17 +1,19 @@
 ---
 - name: Playbook test
   hosts: all
-  gather_facts: yes
-  become: yes
   tasks:
     
     - name: OS version
+      ansible.builtin.shell: cat /etc/*ease
 
     - name: CPUs allocated
+      ansible.builtin.shell: cat /etc/*ease
 
     - name: CPU load
+      ansible.builtin.shell: cat /etc/*ease
 
     - name: Memory available
+      ansible.builtin.shell: cat /etc/*ease
 
     - name: Disk space
-      
+      ansible.builtin.shell: cat /etc/*ease
