@@ -2,15 +2,21 @@
 - name: Playbook test
   hosts: all
   tasks:
-    
+
     - name: OS version
       ansible.builtin.shell: cat /etc/*ease
+      register: os_version
+      debug: var=os_version.stdout_lines
 
     - name: CPUs allocated
       ansible.builtin.shell: cat /etc/*ease
+      register: os_version
+      debug: msg=os_version.stdout
 
     - name: CPU load
       ansible.builtin.shell: cat /etc/*ease
+      register: os_version
+      debug: msg=os_version.stderr
 
     - name: Memory available
       ansible.builtin.shell: cat /etc/*ease
