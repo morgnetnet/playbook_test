@@ -19,7 +19,7 @@
 
     - name: CPUs allocated - standard out lines
       ansible.builtin.debug:
-        msg:"{{ os_version.stdout_lines }}"
+        msg: "{{ os_version.stdout_lines }}"
 
     - name: CPU load - register variable
       ansible.builtin.shell: cat /etc/*ease
@@ -28,7 +28,7 @@
 
     - name: CPU load - standard out lines
       ansible.builtin.debug:
-        msg:"{{ os_version.stdout_lines }}"
+        msg: "{{ os_version.stdout_lines }}"
 
     - name: Memory available - register variable
       ansible.builtin.shell: cat /etc/*ease
@@ -37,7 +37,7 @@
 
     - name: Memory available - standard out lines
       ansible.builtin.debug:
-        msg:"{{ os_version.sstdout_lines }}"
+        msg: "{{ os_version.sstdout_lines }}"
 
     - name: Disk space - register variable
       ansible.builtin.shell: cat /etc/*ease
@@ -46,4 +46,4 @@
 
     - name: Disk space - standard out lines
       ansible.builtin.debug:
-        msg:"{{ os_version.stdout_lines }}"
+        msg: "{{ os_version.stdout_lines }}"
