@@ -3,29 +3,47 @@
   hosts: all
   tasks:
 
-    - name: OS version
+    - name: OS version - register variable
       ansible.builtin.shell: cat /etc/*ease
+      changed_when: false
       register: os_version_01
 
-    - name: Standard Out Lines  
-      debug: var=os_version_01.stdout_lines
+    - name: OS version - standard out
+      ansible.builtin.debug:
+        msg: "{{ os_version.stdout }}"
 
-    - name: CPUs allocated
+    - name: CPUs allocated - register variable
       ansible.builtin.shell: cat /etc/*ease
-      register: os_version_02
-    
-    - name: Standard Out
-      debug: msg="{{ os_version_02.stdout }}"
+      changed_when: false
+      register: os_version
 
-    - name: CPU load
-      ansible.builtin.shell: cat /etc/*ease
-      register: os_version_03
-      
-    - name: Standard Error  
-      debug: msg="{{ os_version_03.stderr }}"
+    - name: CPUs allocated - standard out lines
+      ansible.builtin.debug:
+        msg:"{{ os_version.stdout_lines }}"
 
-    - name: Memory available
+    - name: CPU load - register variable
       ansible.builtin.shell: cat /etc/*ease
+      changed_when: false
+      register: os_version
 
-    - name: Disk space
+    - name: CPU load - standard out lines
+      ansible.builtin.debug:
+        msg:"{{ os_version.stdout_lines }}"
+
+    - name: Memory available - register variable
       ansible.builtin.shell: cat /etc/*ease
+      changed_when: false
+      register: os_version
+
+    - name: Memory available - standard out lines
+      ansible.builtin.debug:
+        msg:"{{ os_version.sstdout_lines }}"
+
+    - name: Disk space - register variable
+      ansible.builtin.shell: cat /etc/*ease
+      changed_when: false
+      register: os_version
+
+    - name: Disk space - standard out lines
+      ansible.builtin.debug:
+        msg:"{{ os_version.stdout_lines }}"
