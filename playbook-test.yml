@@ -6,7 +6,7 @@
     - name: OS version - register variable
       ansible.builtin.shell: cat /etc/*ease
       changed_when: false
-      register: os_version_01
+      register: os_version
 
     - name: OS version - standard out
       ansible.builtin.debug:
