@@ -6,16 +6,22 @@
     - name: OS version
       ansible.builtin.shell: cat /etc/*ease
       register: os_version
+
+    - name: Standard Out Lines  
       debug: var=os_version.stdout_lines
 
     - name: CPUs allocated
       ansible.builtin.shell: cat /etc/*ease
       register: os_version
+    
+    - name: Standard Out
       debug: msg=os_version.stdout
 
     - name: CPU load
       ansible.builtin.shell: cat /etc/*ease
       register: os_version
+      
+    - name: Standard Error  
       debug: msg=os_version.stderr
 
     - name: Memory available
