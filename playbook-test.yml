@@ -4,7 +4,8 @@
   tasks:
 
     - name: OS version - register variable
-      ansible.builtin.shell: grep -iE "name|release" /etc/*release
+      ansible.builtin.shell:
+        cmd: set -o pipefail && grep -iE "name|release" /etc/*release
       changed_when: false
       register: os_version
 
@@ -13,7 +14,8 @@
         msg: "{{ os_version.stdout }}"
 
     - name: CPUs info - register variable
-      ansible.builtin.shell: lscpu | grep -iE "CPU|Thread|Core|Socket"
+      ansible.builtin.shell:
+        cmd: set -o pipefail && lscpu | grep -iE "CPU|Thread|Core|Socket"
       changed_when: false
       register: cpu_info
 
