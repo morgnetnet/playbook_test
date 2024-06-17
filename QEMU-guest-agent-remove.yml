@@ -13,12 +13,12 @@
       ansible.builtin.debug:
         msg: " == STATUS BEFORE ==  {{ qemu_status_before.stdout_lines }}"
 
-    - name: QEMU-guest-agent install
+    - name: QEMU-guest-agent remove
       ansible.builtin.package:
         name: qemu-guest-agent
         state: absent
 
-    - name: QEMU-guest-agent enabled
+    - name: QEMU-guest-agent disable
       ansible.builtin.service:
         name: qemu-guest-agent
         enabled: false
