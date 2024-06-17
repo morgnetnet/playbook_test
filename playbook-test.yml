@@ -24,7 +24,7 @@
         msg: "{{ cpu_info.stdout_lines }}"
 
     - name: CPU load - register variable
-      ansible.builtin.shell: cat /etc/*ease
+      ansible.builtin.command: uptime
       changed_when: false
       register: cpu_load
 
@@ -33,7 +33,7 @@
         msg: "{{ cpu_load.stdout_lines }}"
 
     - name: Memory available - register variable
-      ansible.builtin.shell: cat /etc/*ease
+      ansible.builtin.command: free -m
       changed_when: false
       register: mem_avail
 
@@ -42,7 +42,7 @@
         msg: "{{ mem_avail.stdout_lines }}"
 
     - name: Disk space - register variable
-      ansible.builtin.shell: cat /etc/*ease
+      ansible.builtin.command: df -h /
       changed_when: false
       register: disk_avail
 
