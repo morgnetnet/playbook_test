@@ -8,11 +8,11 @@
       ansible.builtin.command: systemctl status qemu-guest-agent
       changed_when: false
       ignore_errors: true
-      register: qemu_status_before
+      register: remove_before
 
     - name: QEMU-guest-agent status BEFORE - standard out lines
       ansible.builtin.debug:
-        msg: " == STATUS BEFORE ==  {{ qemu_status_before.stdout_lines }}"
+        msg: " == STATUS BEFORE ==  {{ remove_before.stdout_lines }}"
 
     - name: QEMU-guest-agent remove
       ansible.builtin.package:
@@ -28,8 +28,8 @@
       ansible.builtin.command: systemctl status qemu-guest-agent
       changed_when: false
       ignore_errors: true
-      register: qemu_status_after
+      register: remove_after
 
     - name: QEMU-guest-agent status - standard out lines
       ansible.builtin.debug:
-        msg: " == STATUS AFTER == {{ qemu_status_after.stdout_lines }}"
+        msg: " == STATUS AFTER == {{ remove_after.stdout_lines }}"
