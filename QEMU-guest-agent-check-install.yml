@@ -9,9 +9,9 @@
       changed_when: false
       register: qemu_status_before
 
-    - name: QEMU-guest-agent status - standard out lines
+    - name: QEMU-guest-agent status BEFORE - standard out lines
       ansible.builtin.debug:
-        msg: " Before {{ qemu_status_before.stdout_lines }}"
+        msg: " == STATUS BEFORE ==  {{ qemu_status_before.stdout_lines }}"
 
     - name: QEMU-guest-agent install
       ansible.builtin.package:
@@ -28,11 +28,11 @@
         name: qemu-guest-agent
         state: started
 
-    - name: QEMU-guest-agent status - register variable
+    - name: QEMU-guest-agent status AFTER - register variable
       ansible.builtin.command: systemctl status qemu-guest-agent
       changed_when: false
       register: qemu_status_after
 
     - name: QEMU-guest-agent status - standard out lines
       ansible.builtin.debug:
-        msg: " After {{ qemu_status_after.stdout_lines }}"
+        msg: " == STATUS AFTER == {{ qemu_status_after.stdout_lines }}"
