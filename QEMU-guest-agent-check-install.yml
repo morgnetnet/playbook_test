@@ -19,9 +19,9 @@
         state: present
 
     - name: QEMU-guest-agent enabled
-      ansible.builtin.package:
+      ansible.builtin.service:
         name: qemu-guest-agent
-        state: enabled
+        enabled: true
 
     - name: QEMU-guest-agent start
       ansible.builtin.service:
