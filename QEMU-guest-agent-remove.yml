@@ -1,5 +1,5 @@
 ---
-- name: QEMU-guest-agent install
+- name: QEMU-guest-agent remove
   hosts: all
   become: true
   tasks:
@@ -16,17 +16,12 @@
     - name: QEMU-guest-agent install
       ansible.builtin.package:
         name: qemu-guest-agent
-        state: present
+        state: absent
 
     - name: QEMU-guest-agent enabled
       ansible.builtin.service:
         name: qemu-guest-agent
-        enabled: true
-
-    - name: QEMU-guest-agent start
-      ansible.builtin.service:
-        name: qemu-guest-agent
-        state: started
+        enabled: false
 
     - name: QEMU-guest-agent status AFTER - register variable
       ansible.builtin.command: systemctl status qemu-guest-agent
