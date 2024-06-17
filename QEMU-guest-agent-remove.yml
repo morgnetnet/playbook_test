@@ -7,6 +7,7 @@
     - name: QEMU-guest-agent status - register variable
       ansible.builtin.command: systemctl status qemu-guest-agent
       changed_when: false
+      ignore_errors: true
       register: qemu_status_before
 
     - name: QEMU-guest-agent status BEFORE - standard out lines
@@ -26,6 +27,7 @@
     - name: QEMU-guest-agent status AFTER - register variable
       ansible.builtin.command: systemctl status qemu-guest-agent
       changed_when: false
+      ignore_errors: true
       register: qemu_status_after
 
     - name: QEMU-guest-agent status - standard out lines
