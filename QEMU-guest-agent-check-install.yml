@@ -4,35 +4,35 @@
   become: true
   tasks:
 
-    - name: QEUM-guest-agent status - register variable
-      ansible.builtin.command: systemctl status qeum-guest-agent
+    - name: QEMU-guest-agent status - register variable
+      ansible.builtin.command: systemctl status qemu-guest-agent
       changed_when: false
-      register: qeum_status_before
+      register: qemu_status_before
 
-    - name: QEUM-guest-agent status - standard out lines
+    - name: QEMU-guest-agent status - standard out lines
       ansible.builtin.debug:
-        msg: " Before {{ qeum_status_before.stdout_lines }}"
+        msg: " Before {{ qemu_status_before.stdout_lines }}"
 
-    - name: QEUM-guest-agent install
+    - name: QEMU-guest-agent install
       ansible.builtin.package:
-        name: qeum-guest-agent
+        name: qemu-guest-agent
         state: present
 
-    - name: QEUM-guest-agent enable
+    - name: QEMU-guest-agent enable
       ansible.builtin.service:
-        name: qeum-guest-agent
+        name: qemu-guest-agent
         state: enabled
 
-    - name: QEUM-guest-agent start
+    - name: QEMU-guest-agent start
       ansible.builtin.service:
-        name: qeum-guest-agent
+        name: qemu-guest-agent
         state: started
 
-    - name: QEUM-guest-agent status - register variable
-      ansible.builtin.command: systemctl status qeum-guest-agent
+    - name: QEMU-guest-agent status - register variable
+      ansible.builtin.command: systemctl status qemu-guest-agent
       changed_when: false
-      register: qeum_status_after
+      register: qemu_status_after
 
-    - name: QEUM-guest-agent status - standard out lines
+    - name: QEMU-guest-agent status - standard out lines
       ansible.builtin.debug:
-        msg: " After {{ qeum_status_after.stdout_lines }}"
+        msg: " After {{ qemu_status_after.stdout_lines }}"
