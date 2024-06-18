@@ -1,0 +1,35 @@
+---
+- name: Block Scalars
+  hosts: all
+  vars:
+    regular_variable: "Regular Variable"
+
+    literal_block_scalar: |
+
+         This is a
+
+         literal block scalar
+
+         multiline string
+
+    folded_block_scalar: >
+
+         This is a
+
+         folded block scalar
+
+         multiline string
+
+  tasks:
+
+    - name: Print regular variable
+      ansible.builtin.debug:
+        msg: "Print the Regular Variable {{ regular_variable }}"
+
+    - name: Print literal block scalar
+      ansible.builtin.debug:
+        msg: "Print the Literal Block Scalar {{ literal_block_scalar }}"
+
+    - name: Print folded block scalar
+      ansible.builtin.debug:
+        msg: "Print the Folded Block Scalar {{ folded_block_scalar }}"
