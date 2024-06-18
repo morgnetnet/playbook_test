@@ -1,0 +1,24 @@
+---
+- name: Debug verbosity
+  hosts: all
+  tasks:
+
+    - name: Verbosity 0
+      ansible.builtin.debug:
+        msg: "Verbosity 0"
+        verbosity: 0
+
+    - name: Verbosity 1
+      ansible.builtin.debug:
+        msg: "Verbosity 1"
+        verbosity: 1
+
+    - name: Verbosity 2
+      ansible.builtin.debug:
+        msg: "Verbosity 2"
+        verbosity: 2
+
+    - name: Verbosity 3
+      ansible.builtin.debug:
+        msg: "Verbosity 3"
+        verbosity: 3

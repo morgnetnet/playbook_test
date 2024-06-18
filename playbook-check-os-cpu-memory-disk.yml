@@ -11,7 +11,7 @@
 
     - name: OS version - standard out
       ansible.builtin.debug:
-        msg: "{{ os_version.stdout | regex_search('release', multiline=True) }}"
+        msg: "{{ os_version.stdout }}"
 
     - name: CPUs info - register variable
       ansible.builtin.shell:
@@ -21,7 +21,7 @@
 
     - name: CPUs info - standard out lines
       ansible.builtin.debug:
-        msg: "{{ cpu_info.stdout_lines | regex_search('^Flags, multiline=True') }}"
+        msg: "{{ cpu_info.stdout_lines }}"
 
     - name: CPU load - register variable
       ansible.builtin.command: uptime
